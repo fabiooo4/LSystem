@@ -19,7 +19,7 @@ class Renderer {
           translate(this.lineLength, 0);
           break;
 
-        case 'G':
+        case 'f':
           translate(this.lineLength, 0);
           break;
 
@@ -28,7 +28,7 @@ class Renderer {
           break;
 
         case '-':
-          rotate(+this.angle);
+          rotate(this.angle);
           break;
 
         case '[':

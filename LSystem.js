@@ -15,7 +15,7 @@ class LSystem {
       let replace = character;
 
       // Loop for every rule
-      for (const rule of ruleset) {
+      for (const rule of this.ruleset) {
         // Check if character matches the rule
         if (character == rule.getInput()) {
           // Set the replace string to the output of the rule

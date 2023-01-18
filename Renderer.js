@@ -1,11 +1,17 @@
 class Renderer {
-  constructor(string, lineLength, angle) {
+  constructor(string, lineLength, angle, startingX, startingY, initialRotation) {
     this.string = string;
     this.lineLength = lineLength;
     this.angle = angle;
+    this.startingX = startingX;
+    this.startingY = startingY;
+    this.initialRotation = initialRotation;
   }
 
   render() {
+    translate(this.startingX, this.startingY);
+    rotate(this.initialRotation);
+
     for (const c of this.string) {
       switch (c) {
         case 'F':
@@ -18,11 +24,11 @@ class Renderer {
           break;
 
         case '+':
-          rotate(this.angle);
+          rotate(-this.angle);
           break;
 
         case '-':
-          rotate(-this.angle);
+          rotate(+this.angle);
           break;
 
         case '[':

@@ -1,6 +1,7 @@
 class Renderer {
   constructor(string, lineLength, angle, startingX, startingY, initialRotation) {
     this.string = string;
+    this.originalLength = lineLength;
     this.lineLength = lineLength;
     this.angle = angle;
     this.startingX = startingX;
@@ -53,7 +54,19 @@ class Renderer {
     this.lineLength *= scale;
   }
 
+  resetLength() {
+    this.linelength = this.originalLength;
+  }
+
+  getLength() {
+    return this.linelength;
+  }
+
   setString(newString) {
     this.string = newString;
+  }
+
+  resetString() {
+    this.string = "";
   }
 }

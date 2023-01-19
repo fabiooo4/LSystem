@@ -1,18 +1,10 @@
 let select;
-let selectedFractal = 'tree';
+let selectedFractal = 0;
 let counter = 0;
 
-let treeLsys;
-let treeRuleset = [];
-let treeRenderer;
-
-let pyramidLsys;
-let pyramidRuleset = [];
-let pyramidRenderer;
-
-let bushLsys;
-let bushRuleset = [];
-let bushRenderer;
+let lsystems = [];
+let rulesets = [];
+let renderers = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -20,110 +12,71 @@ function setup() {
   textAlign(CENTER);
   select = createSelect();
   select.position(10, 10);
-  select.option('Tree');
-  select.option('Pyramid');
-  select.option('Bush');
+  select.option(0);
+  select.option(1);
+  select.option(2);
   select.changed(selectEvent);
 
-  //TODO Create systems and renderer and rulesets arrays
-  
-  treeRuleset[0] = new Rule('F', "FF+[+F-F-F]-[-F+F+F]");
-  treeLsys = new LSystem('F', treeRuleset);
-  treeRenderer = new Renderer(treeLsys.getSentence(), height/3, radians(25), width/2, height, -PI/2);
+  // Tree fractal
+  rulesets.push(new Array(new Rule('F', "FF+[+F-F-F]-[-F+F+F]")));
+  lsystems.push(new LSystem('F', rulesets[0]));
+  renderers.push(new Renderer(lsystems[0].getSentence(), height/3, radians(25), width/2, height, -PI/2))
 
-  pyramidRuleset[0] = new Rule('F', "F+F-F-F+F");
-  pyramidLsys = new LSystem('F', pyramidRuleset);
-  pyramidRenderer = new Renderer(pyramidLsys.getSentence(), 100, PI/2, 0, height, 0);
+  // Pyramid fractal
+  rulesets.push(new Array(new Rule('F', "F+F-F-F+F")));
+  lsystems.push(new LSystem('F', rulesets[1]));
+  renderers.push(new Renderer(lsystems[1].getSentence(), 100, PI/2, 0, height, 0))
 
-  bushRuleset[0] = new Rule('F', "F[+FF][-FF]F[-F][+F]F");
-  bushLsys = new LSystem('F', bushRuleset);
-  bushRenderer = new Renderer(bushLsys.getSentence(), 100, radians(35), width/2, height, -PI/2);
+  // Bush fractal
+  rulesets.push(new Array(new Rule('F', "F[+FF][-FF]F[-F][+F]F")));
+  lsystems.push(new LSystem('F', rulesets[2]));
+  renderers.push(new Renderer(lsystems[2].getSentence(), 100, radians(35), width/2, height, -PI/2))
+
+  console.log(selectedFractal);
+  console.log(rulesets);
+  console.log(lsystems);
+  console.log(renderers);
+
 }
 
 function draw() {
   background(0);  
   stroke(255);
   
-
-
-  // treeRenderer.render();
-  // pyramidRenderer.render();
-  // bushRenderer.render();
-  renderFractal(selectedFractal);
+  renderers[selectedFractal].render();
 
   noLoop();
 }
 
 function selectEvent() {
-  selectedFractal = select.value().toLowerCase();
+  selectedFractal = select.value();
+  
+  
+  for (const system of lsystems) {
+    system.resetSentence();
+  }
 
-  //TODO clear all sentences
+  for (const renderer of renderers) {
+    renderer.resetString();
+    renderer.resetLength();
+  }
 
   clear();
   background(0);
 }
-
-
 
 function mousePressed() {
   generateFractal(selectedFractal, counter);
 }
 
 function generateFractal(fractal, counter) {
+  console.log(fractal);
   if (counter < 5) {
-    switch (fractal) {
-      case 'tree':
-        push();
-        treeLsys.generate();
-        treeRenderer.setString(treeLsys.getSentence());
-        treeRenderer.scaleLength(0.5);
-        pop();
-        break;
-
-      case 'pyramid':
-        push();
-        pyramidLsys.generate();
-        pyramidRenderer.setString(pyramidLsys.getSentence());
-        pyramidRenderer.scaleLength(0.5);
-        pop();
-        break;
-
-      case 'bush':
-        push();
-        bushLsys.generate();
-        bushRenderer.setString(bushLsys.getSentence());
-        bushRenderer.scaleLength(0.5);
-        pop();
-        break;
-    
-      default:
-        break;
-    }
-
-    redraw();
-
-    counter++;
-  }
-}
-
-function renderFractal(fractal) {
-  if (counter < 5) {
-    switch (fractal) {
-      case 'tree':
-        treeRenderer.render();
-        break;
-
-      case 'pyramid':
-        pyramidRenderer.render();
-        break;
-
-      case 'bush':
-        bushRenderer.render();
-        break;
-    
-      default:
-        break;
-    }
+    push();
+    lsystems[fractal].generate();
+    renderers[fractal].setString(lsystems[fractal].getSentence());
+    renderers[fractal].scaleLength(0.5);
+    pop();
 
     redraw();
 

@@ -1,6 +1,7 @@
 class LSystem {
   constructor(axiom, ruleset) {
-    this.sentence = axiom; // First character or sentence
+    this.axiom = axiom; // First character or sentence
+    this.sentence = axiom; // Stores the generations
     this.ruleset = ruleset; // Array of rules
     this.generation = 0; // Keeps track of the generation
   }
@@ -34,6 +35,10 @@ class LSystem {
 
   getSentence() {
     return this.sentence;
+  }
+
+  resetSentence() {
+    this.sentence = this.axiom;
   }
 
   getGeneration() {

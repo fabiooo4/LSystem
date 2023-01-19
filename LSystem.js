@@ -44,4 +44,8 @@ class LSystem {
   getGeneration() {
     return this.generation;
   }
+
+  setGeneration(value) {
+    this.generation = value;
+  }
 }

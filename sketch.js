@@ -24,6 +24,7 @@ function setup() {
   select.option('Stick', 6);
   select.option('Algae 1', 7);
   select.option('Algae 2', 8);
+  select.option('Weed', 9);
   select.changed(selectEvent);
 
   button = createButton('Reset');
@@ -144,10 +145,20 @@ function setup() {
     new Rule('v', "fFFF[+s]w"),
     new Rule('w', "fFFF[+s]x"),
     new Rule('x', "fFFF[+s]"),
-    new Rule('y', "Fy"),
+    new Rule('y', "Fy")
   ));
   lsystems.push(new LSystem('aF', rulesets[8]));
   renderers.push(new Renderer(lsystems[8].getSentence(), 1, radians(12), width/2, height, -PI/2, 1));
+
+  //! Weed
+  rulesets.push(new Array(
+    new Rule('F', "FF-[XY]+[XY]"),
+    new Rule('X', "+FY"),
+    new Rule('Y', "-FX")
+  ));
+  lsystems.push(new LSystem('F', rulesets[9]));
+  renderers.push(new Renderer(lsystems[9].getSentence(), 5, radians(22.5), width/2, height, -PI/2, 1));
+
 }
 
 function draw() {

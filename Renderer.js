@@ -1,5 +1,5 @@
 class Renderer {
-  constructor(string, lineLength, angle, startingX, startingY, initialRotation, scale = 0.5, lengthFactor = 1) {
+  constructor(string, lineLength, angle, startingX, startingY, initialRotation, scale = 1, lengthFactor = 1) {
     this.string = string;
     this.lineLength = lineLength;
     this.originalLength = this.lineLength;

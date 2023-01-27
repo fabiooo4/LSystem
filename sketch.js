@@ -25,30 +25,30 @@ function setup() {
   select.option('Algae 1', 7);
   select.option('Algae 2', 8);
   select.option('Weed', 9);
+  select.option('Triangle', 10);
+  select.option('Quadratic Gosper', 11);
   select.changed(selectEvent);
-
+  
   button = createButton('Reset');
   button.position(10, 33);
   button.style('border-radius:7px');
   button.mousePressed(buttonEvent);
 
 
-  //! Fractal tamplate
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[6]));
-  // renderers.push(new Renderer(lsystems[6].getSentence(), 300, radians(20), width/2, height, -PI/2));
 
   //! Bush 1
-  rulesets.push(new Array(new Rule('F', "FF+[+F-F-F]-[-F+F+F]")));
+  rulesets.push(new Array(
+    new Rule('F', "FF+[+F-F-F]-[-F+F+F]")
+  ));
   lsystems.push(new LSystem('F', rulesets[0]));
-  renderers.push(new Renderer(lsystems[0].getSentence(), 200, radians(25), width/2, height, -PI/2));
+  renderers.push(new Renderer(lsystems[0].getSentence(), 200, radians(25), width/2, height, -PI/2, 0.5));
 
   //! Bush 2
-  rulesets.push(new Array(new Rule('F', "F[+FF][-FF]F[-F][+F]F")));
+  rulesets.push(new Array(
+    new Rule('F', "F[+FF][-FF]F[-F][+F]F")
+  ));
   lsystems.push(new LSystem('F', rulesets[1]));
-  renderers.push(new Renderer(lsystems[1].getSentence(), 150, radians(35), width/2, height, -PI/2));
+  renderers.push(new Renderer(lsystems[1].getSentence(), 150, radians(35), width/2, height, -PI/2, 0.5));
   
   //! Bush 3
   rulesets.push(new Array(
@@ -56,7 +56,7 @@ function setup() {
     new Rule('Y', "YFX[+Y][-Y]")
   ));
   lsystems.push(new LSystem('Y', rulesets[2]));
-  renderers.push(new Renderer(lsystems[2].getSentence(), 400, radians(25.7), width/2, height, -PI/2));
+  renderers.push(new Renderer(lsystems[2].getSentence(), 400, radians(25.7), width/2, height, -PI/2, 0.5));
 
   //! Bush 4
   rulesets.push(new Array(
@@ -70,9 +70,11 @@ function setup() {
   renderers.push(new Renderer(lsystems[3].getSentence(), 130, radians(20), width/2, height-100, -PI/2, 0.8));
 
   //! Pyramid
-  rulesets.push(new Array(new Rule('F', "F+F-F-F+F")));
+  rulesets.push(new Array(
+    new Rule('F', "F+F-F-F+F")
+  ));
   lsystems.push(new LSystem('F', rulesets[4]));
-  renderers.push(new Renderer(lsystems[4].getSentence(), 200, PI/2, 0, height, 0));
+  renderers.push(new Renderer(lsystems[4].getSentence(), 200, PI/2, 0, height, 0, 0.5));
 
   //! Leaf
   rulesets.push(new Array(
@@ -91,7 +93,7 @@ function setup() {
     new Rule('X', "F[+X]F[-X]+X")
   ));
   lsystems.push(new LSystem('X', rulesets[6]));
-  renderers.push(new Renderer(lsystems[6].getSentence(), 400  , radians(20), width/2, height, -PI/2));
+  renderers.push(new Renderer(lsystems[6].getSentence(), 400  , radians(20), width/2, height, -PI/2, 0.5));
 
   //! Algae 1
   rulesets.push(new Array(
@@ -118,7 +120,7 @@ function setup() {
     new Rule('v', "Fv"),
   ));
   lsystems.push(new LSystem('aF', rulesets[7]));
-  renderers.push(new Renderer(lsystems[7].getSentence(), 4, radians(12), width/2, height, -PI/2, 1));
+  renderers.push(new Renderer(lsystems[7].getSentence(), 4, radians(12), width/2, height, -PI/2));
 
   //! Algae 2
   rulesets.push(new Array(
@@ -148,7 +150,7 @@ function setup() {
     new Rule('y', "Fy")
   ));
   lsystems.push(new LSystem('aF', rulesets[8]));
-  renderers.push(new Renderer(lsystems[8].getSentence(), 1, radians(12), width/2, height, -PI/2, 1));
+  renderers.push(new Renderer(lsystems[8].getSentence(), 1, radians(12), width/2, height, -PI/2));
 
   //! Weed
   rulesets.push(new Array(
@@ -157,8 +159,30 @@ function setup() {
     new Rule('Y', "-FX")
   ));
   lsystems.push(new LSystem('F', rulesets[9]));
-  renderers.push(new Renderer(lsystems[9].getSentence(), 5, radians(22.5), width/2, height, -PI/2, 1));
+  renderers.push(new Renderer(lsystems[9].getSentence(), 5, radians(22.5), width/2, height, -PI/2));
 
+  //! Triangle
+  rulesets.push(new Array(
+    new Rule('F', "F-F+F")
+  ));
+  lsystems.push(new LSystem('F+F+F', rulesets[10]));
+  renderers.push(new Renderer(lsystems[10].getSentence(), 100, radians(120), width/2, height/2 + 100, -PI/2, 0.7));
+
+  //! Quadratic Gosper
+  rulesets.push(new Array(
+    new Rule('X', "XFX-YF-YF+FX+FX-YF-YFFX+YF+FXFXYF-FX+YF+FXFX+YF-FXYF-YF-FX+FX+YFYF-"),
+    new Rule('Y', "+FXFX-YF-YF+FX+FXYF+FX-YFYF-FX-YF+FXYFYF-FX-YFFX+FX+YF-YF-FX+FX+YFY")
+
+  ));
+  lsystems.push(new LSystem('-YF', rulesets[11]));
+  renderers.push(new Renderer(lsystems[11].getSentence(), 100, PI/2, 0, height, -PI/2, 0.53));
+
+  //! Fractal tamplate
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[6]));
+  // renderers.push(new Renderer(lsystems[6].getSentence(), 300, radians(20), width/2, height, -PI/2));
 }
 
 function draw() {

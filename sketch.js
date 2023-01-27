@@ -30,8 +30,8 @@ function setup() {
   select.option('Hexagonal Gosper', 12);
   select.option('Square Sierpinski', 13);
   select.option('Sierpinski Arrowhead', 14);
+  select.option('Classic Sierpinski Curve', 15);
   select.changed(selectEvent);
-  
   button = createButton('Reset');
   button.position(10, 33);
   button.style('border-radius:7px');
@@ -202,6 +202,13 @@ function setup() {
   ));
   lsystems.push(new LSystem('YF', rulesets[14]));
   renderers.push(new Renderer(lsystems[14].getSentence(), 900, radians(60), width/2, height, -PI/2, 0.5));
+
+  //! Classic Sierpinski Curve
+  rulesets.push(new Array(
+    new Rule('X', "XF+F+XF--F--XF+F+X")
+  ));
+  lsystems.push(new LSystem('F--XF--F--XF', rulesets[15]));
+  renderers.push(new Renderer(lsystems[15].getSentence(), 330, PI/4, width/2 - 450, height/2, -PI/2, 0.48));
 
   //! Fractal tamplate
   // rulesets.push(new Array(

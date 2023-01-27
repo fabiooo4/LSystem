@@ -192,7 +192,7 @@ function setup() {
     new Rule('F', "F-F+F")
   ));
   lsystems.push(new LSystem('F+F+F', rulesets[10]));
-  renderers.push(new Renderer(lsystems[10].getSentence(), 100, radians(120), width/2, height/2 + 100, -PI/2, 0.7));
+  renderers.push(new Renderer(lsystems[10].getSentence(), 100, radians(120), width/2, height/2 - 150, -PI/2, 0.7));
 
   //! Quadratic Gosper
   rulesets.push(new Array(

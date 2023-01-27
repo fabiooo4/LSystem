@@ -45,7 +45,7 @@ function setup() {
   select.option('Cross 2', 27);
   select.option('Pentaplexity', 28);
   select.option('Tiles', 29);
-  // select.option('Rings', 30);
+  select.option('Rings', 30);
   // select.option('Dragon Curve', 31);
   // select.option('Lévy Curve', 32);
   // select.option('Krishna Anklets', 33);
@@ -329,17 +329,17 @@ function setup() {
 
   //! Tiles
   rulesets.push(new Array(
-    new Rule('F', "FF+F-F+F+FF"),
+    new Rule('F', "FF+F-F+F+FF")
   ));
   lsystems.push(new LSystem('F+F+F+F', rulesets[29]));
   renderers.push(new Renderer(lsystems[29].getSentence(), 10, PI/2, width/2, height/2 + 10, -PI/2, 1));
 
   //! Rings
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[30]));
-  // renderers.push(new Renderer(lsystems[30].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "FF+F+F+F+F+F-F")
+  ));
+  lsystems.push(new LSystem('F+F+F+F', rulesets[30]));
+  renderers.push(new Renderer(lsystems[30].getSentence(), 500, PI/2, width/2 + 250, height/2, -PI/2, 1/3));
 
   //! Dragon Curve
   // rulesets.push(new Array(

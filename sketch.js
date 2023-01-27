@@ -31,7 +31,10 @@ function setup() {
   select.option('Square Sierpinski', 13);
   select.option('Sierpinski Arrowhead', 14);
   select.option('Classic Sierpinski Curve', 15);
+  select.option('Crystal', 16);
   select.changed(selectEvent);
+
+
   button = createButton('Reset');
   button.position(10, 33);
   button.style('border-radius:7px');
@@ -209,6 +212,13 @@ function setup() {
   ));
   lsystems.push(new LSystem('F--XF--F--XF', rulesets[15]));
   renderers.push(new Renderer(lsystems[15].getSentence(), 330, PI/4, width/2 - 450, height/2, -PI/2, 0.48));
+
+  //! Crystal
+  rulesets.push(new Array(
+    new Rule('F', "FF+F++F+F"),
+  ));
+  lsystems.push(new LSystem('F+F+F+F', rulesets[16]));
+  renderers.push(new Renderer(lsystems[16].getSentence(), 900, PI/2, width - 450, height, -PI/2, 1/3));
 
   //! Fractal tamplate
   // rulesets.push(new Array(

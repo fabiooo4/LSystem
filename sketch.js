@@ -34,7 +34,7 @@ function setup() {
   select.option('Crystal', 16);
   select.option('Peano Curve', 17);
   select.option('Koch Curve', 18);
-  // select.option('Template', 19);
+  select.option('Quadratic Snowflake', 19);
   // select.option('Template', 20);
   // select.option('Template', 21);
   // select.option('Template', 22);
@@ -256,11 +256,11 @@ function setup() {
   renderers.push(new Renderer(lsystems[18].getSentence(), 550, PI/2, width/2 + 250, height - 200, -PI/2, 1/4));
 
   //! Quadratic Snowflake
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[19]));
-  // renderers.push(new Renderer(lsystems[19].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "F+F-F-F+F")
+  ));
+  lsystems.push(new LSystem('FF+FF+FF+FF', rulesets[19]));
+  renderers.push(new Renderer(lsystems[19].getSentence(), 450, -PI/2, width/2 - 450, height - 30, -PI/2, 1/3));
 
   //! Quadratic Kock Island 1
   // rulesets.push(new Array(

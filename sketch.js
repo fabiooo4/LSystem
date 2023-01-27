@@ -32,6 +32,7 @@ function setup() {
   select.option('Sierpinski Arrowhead', 14);
   select.option('Classic Sierpinski Curve', 15);
   select.option('Crystal', 16);
+  select.option('Peano Curve', 17);
   select.changed(selectEvent);
 
 
@@ -215,10 +216,18 @@ function setup() {
 
   //! Crystal
   rulesets.push(new Array(
-    new Rule('F', "FF+F++F+F"),
+    new Rule('F', "FF+F++F+F")
   ));
   lsystems.push(new LSystem('F+F+F+F', rulesets[16]));
   renderers.push(new Renderer(lsystems[16].getSentence(), 900, PI/2, width - 450, height, -PI/2, 1/3));
+
+  //! Peano Curve
+  rulesets.push(new Array(
+    new Rule('X', "XFYFX+F+YFXFY-F-XFYFX"),
+    new Rule('Y', "YFXFY-F-XFYFX+F+YFXFY")
+  ));
+  lsystems.push(new LSystem('X', rulesets[17]));
+  renderers.push(new Renderer(lsystems[17].getSentence(), 970, PI/2, width - 450, height, -PI/2, 1/3));
 
   //! Fractal tamplate
   // rulesets.push(new Array(

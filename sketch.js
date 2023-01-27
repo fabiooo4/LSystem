@@ -44,7 +44,7 @@ function setup() {
   select.option('Cross 1', 26);
   select.option('Cross 2', 27);
   select.option('Pentaplexity', 28);
-  // select.option('Tiles', 29);
+  select.option('Tiles', 29);
   // select.option('Rings', 30);
   // select.option('Dragon Curve', 31);
   // select.option('Lévy Curve', 32);
@@ -328,11 +328,11 @@ function setup() {
   renderers.push(new Renderer(lsystems[28].getSentence(), 550, radians(36), width/2 + 250, height - 80, -radians(72), 0.382));
 
   //! Tiles
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[29]));
-  // renderers.push(new Renderer(lsystems[29].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "FF+F-F+F+FF"),
+  ));
+  lsystems.push(new LSystem('F+F+F+F', rulesets[29]));
+  renderers.push(new Renderer(lsystems[29].getSentence(), 10, PI/2, width/2, height/2 + 10, -PI/2, 1));
 
   //! Rings
   // rulesets.push(new Array(

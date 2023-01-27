@@ -29,6 +29,7 @@ function setup() {
   select.option('Quadratic Gosper', 11);
   select.option('Hexagonal Gosper', 12);
   select.option('Square Sierpinski', 13);
+  select.option('Sierpinski Arrowhead', 14);
   select.changed(selectEvent);
   
   button = createButton('Reset');
@@ -193,6 +194,14 @@ function setup() {
   ));
   lsystems.push(new LSystem('F+XF+F+XF', rulesets[13]));
   renderers.push(new Renderer(lsystems[13].getSentence(), 200, PI/2, width/2 + 250, height/2, -PI/2, 0.5));
+
+  //! Sierpinski Arrowhead
+  rulesets.push(new Array(
+    new Rule('X', "YF+XF+Y"),
+    new Rule('Y', "XF-YF-X")
+  ));
+  lsystems.push(new LSystem('YF', rulesets[14]));
+  renderers.push(new Renderer(lsystems[14].getSentence(), 900, radians(60), width/2, height, -PI/2, 0.5));
 
   //! Fractal tamplate
   // rulesets.push(new Array(

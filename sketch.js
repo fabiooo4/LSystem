@@ -41,8 +41,8 @@ function setup() {
   select.option('Board', 23);
   select.option('Hilbert', 24);
   select.option('Von Koch Snowflake', 25);
-  // select.option('Cross 1', 26);
-  // select.option('Cross 2', 27);
+  select.option('Cross 1', 26);
+  select.option('Cross 2', 27);
   // select.option('Pentaplexity', 28);
   // select.option('Tiles', 29);
   // select.option('Rings', 30);
@@ -301,24 +301,24 @@ function setup() {
 
   //! Von Koch Snowflake
   rulesets.push(new Array(
-    new Rule('F', "F-F++F-F"),
+    new Rule('F', "F-F++F-F")
   ));
   lsystems.push(new LSystem('F++F++F', rulesets[25]));
   renderers.push(new Renderer(lsystems[25].getSentence(), 900, radians(60), width/2 + 300, height - 40, -PI/2, 1/3));
 
   //! Cross 1
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[26]));
-  // renderers.push(new Renderer(lsystems[26].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "F+FF++F+F")
+  ));
+  lsystems.push(new LSystem('F+F+F+F', rulesets[26]));
+  renderers.push(new Renderer(lsystems[26].getSentence(), 300, PI/2, width/2, height/2 - 180, -PI/2, 1/2));
 
   //! Cross 2
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[27]));
-  // renderers.push(new Renderer(lsystems[27].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "F+F-F+F+F")
+  ));
+  lsystems.push(new LSystem('F+F+F+F', rulesets[27]));
+  renderers.push(new Renderer(lsystems[27].getSentence(), 300, PI/2, width/2 + 100, height - 150, -PI/2, 1/2));
 
   //! Pentaplexity
   // rulesets.push(new Array(

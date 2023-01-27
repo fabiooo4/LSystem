@@ -58,6 +58,11 @@ class Renderer {
           this.lineLength /= this.lengthFactor
           break
 
+        case '|':
+          // Reverse direction
+          rotate(PI);
+          break
+
         default:
           break;
       }

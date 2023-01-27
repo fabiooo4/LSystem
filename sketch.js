@@ -43,7 +43,7 @@ function setup() {
   select.option('Von Koch Snowflake', 25);
   select.option('Cross 1', 26);
   select.option('Cross 2', 27);
-  // select.option('Pentaplexity', 28);
+  select.option('Pentaplexity', 28);
   // select.option('Tiles', 29);
   // select.option('Rings', 30);
   // select.option('Dragon Curve', 31);
@@ -321,11 +321,11 @@ function setup() {
   renderers.push(new Renderer(lsystems[27].getSentence(), 300, PI/2, width/2 + 100, height - 150, -PI/2, 1/2));
 
   //! Pentaplexity
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[28]));
-  // renderers.push(new Renderer(lsystems[28].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "F++F++F|F-F++F")
+  ));
+  lsystems.push(new LSystem('F++F++F++F++F', rulesets[28]));
+  renderers.push(new Renderer(lsystems[28].getSentence(), 550, radians(36), width/2 + 250, height - 80, -radians(72), 0.382));
 
   //! Tiles
   // rulesets.push(new Array(

@@ -33,6 +33,25 @@ function setup() {
   select.option('Classic Sierpinski Curve', 15);
   select.option('Crystal', 16);
   select.option('Peano Curve', 17);
+  select.option('Koch Curve', 18);
+  // select.option('Template', 19);
+  // select.option('Template', 20);
+  // select.option('Template', 21);
+  // select.option('Template', 22);
+  // select.option('Template', 23);
+  // select.option('Template', 24);
+  // select.option('Template', 25);
+  // select.option('Template', 26);
+  // select.option('Template', 27);
+  // select.option('Template', 28);
+  // select.option('Template', 29);
+  // select.option('Template', 30);
+  // select.option('Template', 31);
+  // select.option('Template', 32);
+  // select.option('Template', 33);
+  // select.option('Template', 34);
+  // select.option('Template', 35);
+  // select.option('Template', 36);  
   select.changed(selectEvent);
 
 
@@ -229,12 +248,138 @@ function setup() {
   lsystems.push(new LSystem('X', rulesets[17]));
   renderers.push(new Renderer(lsystems[17].getSentence(), 970, PI/2, width - 450, height, -PI/2, 1/3));
 
-  //! Fractal tamplate
+  //! Koch Curve
+  rulesets.push(new Array(
+    new Rule('F', "F+F-F-FF+F+F-F")
+  ));
+  lsystems.push(new LSystem('F+F+F+F', rulesets[18]));
+  renderers.push(new Renderer(lsystems[18].getSentence(), 550, PI/2, width/2 + 250, height - 200, -PI/2, 1/4));
+
+  //! Quadratic Snowflake
   // rulesets.push(new Array(
   //   new Rule('aaa', "aaa"),
   // ));
-  // lsystems.push(new LSystem('X', rulesets[6]));
-  // renderers.push(new Renderer(lsystems[6].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  // lsystems.push(new LSystem('X', rulesets[19]));
+  // renderers.push(new Renderer(lsystems[19].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Quadratic Kock Island 1
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[20]));
+  // renderers.push(new Renderer(lsystems[20].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Quadratic Kock Island 2
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[21]));
+  // renderers.push(new Renderer(lsystems[21].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Quadratic Kock Island 3
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[22]));
+  // renderers.push(new Renderer(lsystems[22].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Board
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[23]));
+  // renderers.push(new Renderer(lsystems[23].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Hilbert
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[24]));
+  // renderers.push(new Renderer(lsystems[24].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Von Koch Snowflake
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[25]));
+  // renderers.push(new Renderer(lsystems[25].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Cross 1
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[26]));
+  // renderers.push(new Renderer(lsystems[26].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Cross 2
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[27]));
+  // renderers.push(new Renderer(lsystems[27].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Pentaplexity
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[28]));
+  // renderers.push(new Renderer(lsystems[28].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Tiles
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[29]));
+  // renderers.push(new Renderer(lsystems[29].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Rings
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[30]));
+  // renderers.push(new Renderer(lsystems[30].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Dragon Curve
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[31]));
+  // renderers.push(new Renderer(lsystems[31].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Lévy Curve
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[32]));
+  // renderers.push(new Renderer(lsystems[32].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Krishna Anklets
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[33]));
+  // renderers.push(new Renderer(lsystems[33].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Mango Leaf
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[34]));
+  // renderers.push(new Renderer(lsystems[34].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Kolam
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[35]));
+  // renderers.push(new Renderer(lsystems[35].getSentence(), 300, radians(20), width/2, height, -PI/2));
+
+  //! Snake Kolam
+  // rulesets.push(new Array(
+  //   new Rule('aaa', "aaa"),
+  // ));
+  // lsystems.push(new LSystem('X', rulesets[36]));
+  // renderers.push(new Renderer(lsystems[36].getSentence(), 300, radians(20), width/2, height, -PI/2));
 }
 
 function draw() {

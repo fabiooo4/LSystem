@@ -27,6 +27,7 @@ function setup() {
   select.option('Weed', 9);
   select.option('Triangle', 10);
   select.option('Quadratic Gosper', 11);
+  select.option('Hexagonal Gosper', 12);
   select.changed(selectEvent);
   
   button = createButton('Reset');
@@ -176,6 +177,14 @@ function setup() {
   ));
   lsystems.push(new LSystem('-YF', rulesets[11]));
   renderers.push(new Renderer(lsystems[11].getSentence(), 100, PI/2, 0, height, -PI/2, 0.53));
+
+  //! Hexagonal Gosper
+  rulesets.push(new Array(
+    new Rule('X', "X+YF++YF-FX--FXFX-YF+"),
+    new Rule('Y', "-FX+YFYF++YF+FX--FX-Y")
+  ));
+  lsystems.push(new LSystem('XF', rulesets[12]));
+  renderers.push(new Renderer(lsystems[12].getSentence(), 200, radians(60), width/2 + 200, height/2 - 200, -PI/2, 0.5));
 
   //! Fractal tamplate
   // rulesets.push(new Array(

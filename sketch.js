@@ -35,23 +35,23 @@ function setup() {
   select.option('Peano Curve', 17);
   select.option('Koch Curve', 18);
   select.option('Quadratic Snowflake', 19);
-  // select.option('Template', 20);
-  // select.option('Template', 21);
-  // select.option('Template', 22);
-  // select.option('Template', 23);
-  // select.option('Template', 24);
-  // select.option('Template', 25);
-  // select.option('Template', 26);
-  // select.option('Template', 27);
-  // select.option('Template', 28);
-  // select.option('Template', 29);
-  // select.option('Template', 30);
-  // select.option('Template', 31);
-  // select.option('Template', 32);
-  // select.option('Template', 33);
-  // select.option('Template', 34);
-  // select.option('Template', 35);
-  // select.option('Template', 36);  
+  select.option('Quadratic Kock Island 1', 20);
+  select.option('Quadratic Kock Island 2', 21);
+  select.option('Quadratic Kock Island 3', 22);
+  // select.option('Board', 23);
+  // select.option('Hilbert', 24);
+  // select.option('Von Koch Snowflake', 25);
+  // select.option('Cross 1', 26);
+  // select.option('Cross 2', 27);
+  // select.option('Pentaplexity', 28);
+  // select.option('Tiles', 29);
+  // select.option('Rings', 30);
+  // select.option('Dragon Curve', 31);
+  // select.option('Lévy Curve', 32);
+  // select.option('Krishna Anklets', 33);
+  // select.option('Mango Leaf', 34);
+  // select.option('Kolam', 35);
+  // select.option('Snake Kolam', 36);
   select.changed(selectEvent);
 
 
@@ -263,25 +263,26 @@ function setup() {
   renderers.push(new Renderer(lsystems[19].getSentence(), 450, -PI/2, width/2 - 450, height - 30, -PI/2, 1/3));
 
   //! Quadratic Kock Island 1
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[20]));
-  // renderers.push(new Renderer(lsystems[20].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "F+F-F-FFF+F+F-F")
+  ));
+  lsystems.push(new LSystem('F+F+F+F', rulesets[20]));
+  renderers.push(new Renderer(lsystems[20].getSentence(), 450, PI/2, width/2 + 150, height - 150, -PI/2, 1/4));
 
   //! Quadratic Kock Island 2
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[21]));
-  // renderers.push(new Renderer(lsystems[21].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "F-FF+FF+F+F-F-FF+F+F-F-FF-FF+F"),
+  ));
+  lsystems.push(new LSystem('F+F+F+F', rulesets[21]));
+  renderers.push(new Renderer(lsystems[21].getSentence(), 500, PI/2, width/2 + 280, height - 230, -PI/2, 1/6));
 
   //! Quadratic Kock Island 3
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[22]));
-  // renderers.push(new Renderer(lsystems[22].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('X', "X+YF++YF-FX--FXFX-YF+X"),
+    new Rule('Y', "-FX+YFYF++YF+FX--FX-YF")
+  ));
+  lsystems.push(new LSystem('X+X+X+X+X+X+X+X', rulesets[22]));
+  renderers.push(new Renderer(lsystems[22].getSentence(), 600, PI/4, width/2 + 300, height/2 - 180, -PI/2, 0.15));
 
   //! Board
   // rulesets.push(new Array(

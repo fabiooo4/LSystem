@@ -40,7 +40,7 @@ function setup() {
   select.option('Quadratic Kock Island 3', 22);
   select.option('Board', 23);
   select.option('Hilbert', 24);
-  // select.option('Von Koch Snowflake', 25);
+  select.option('Von Koch Snowflake', 25);
   // select.option('Cross 1', 26);
   // select.option('Cross 2', 27);
   // select.option('Pentaplexity', 28);
@@ -300,11 +300,11 @@ function setup() {
   renderers.push(new Renderer(lsystems[24].getSentence(), 900, PI/2, width/2 - 400, height - 40, -PI/2, 1/2));
 
   //! Von Koch Snowflake
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[25]));
-  // renderers.push(new Renderer(lsystems[25].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('F', "F-F++F-F"),
+  ));
+  lsystems.push(new LSystem('F++F++F', rulesets[25]));
+  renderers.push(new Renderer(lsystems[25].getSentence(), 900, radians(60), width/2 + 300, height - 40, -PI/2, 1/3));
 
   //! Cross 1
   // rulesets.push(new Array(

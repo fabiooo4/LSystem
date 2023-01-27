@@ -51,7 +51,7 @@ function setup() {
   select.option('Krishna Anklets', 33);
   select.option('Mango Leaf', 34);
   select.option('Kolam', 35);
-  // select.option('Snake Kolam', 36);
+  select.option('Snake Kolam', 36);
   select.changed(selectEvent);
 
 
@@ -382,11 +382,11 @@ function setup() {
   renderers.push(new Renderer(lsystems[35].getSentence(), 30, PI/4, width/2 - 370, height/2, -PI/2));
 
   //! Snake Kolam
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[36]));
-  // renderers.push(new Renderer(lsystems[36].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('X', "XF-F-F+XF+F+XF-F-F+X")
+  ));
+  lsystems.push(new LSystem('F+XF+F+XF', rulesets[36]));
+  renderers.push(new Renderer(lsystems[36].getSentence(), 10, PI/2, width/2 + 935, height, -PI/2));
 }
 
 function draw() {

@@ -46,7 +46,7 @@ function setup() {
   select.option('Pentaplexity', 28);
   select.option('Tiles', 29);
   select.option('Rings', 30);
-  // select.option('Dragon Curve', 31);
+  select.option('Dragon Curve', 31);
   // select.option('Lévy Curve', 32);
   // select.option('Krishna Anklets', 33);
   // select.option('Mango Leaf', 34);
@@ -342,11 +342,12 @@ function setup() {
   renderers.push(new Renderer(lsystems[30].getSentence(), 500, PI/2, width/2 + 250, height/2, -PI/2, 1/3));
 
   //! Dragon Curve
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[31]));
-  // renderers.push(new Renderer(lsystems[31].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('X', "X+YF+"),
+    new Rule('Y', "-FX-Y")
+  ));
+  lsystems.push(new LSystem('FX', rulesets[31]));
+  renderers.push(new Renderer(lsystems[31].getSentence(), 8, PI/2, width/2, height/2, -PI/2));
 
   //! Lévy Curve
   // rulesets.push(new Array(

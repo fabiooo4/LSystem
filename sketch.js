@@ -49,7 +49,7 @@ function setup() {
   select.option('Dragon Curve', 31);
   select.option('Lévy Curve', 32);
   select.option('Krishna Anklets', 33);
-  // select.option('Mango Leaf', 34);
+  select.option('Mango Leaf', 34);
   // select.option('Kolam', 35);
   // select.option('Snake Kolam', 36);
   select.changed(selectEvent);
@@ -364,11 +364,12 @@ function setup() {
   renderers.push(new Renderer(lsystems[33].getSentence(), 750, PI/4, width/2 - 450, height/2, -PI/2, 0.49));
 
   //! Mango Leaf
-  // rulesets.push(new Array(
-  //   new Rule('aaa', "aaa"),
-  // ));
-  // lsystems.push(new LSystem('X', rulesets[34]));
-  // renderers.push(new Renderer(lsystems[34].getSentence(), 300, radians(20), width/2, height, -PI/2));
+  rulesets.push(new Array(
+    new Rule('X', "F-FF-F--[--X]F-FF-F--F-FF-F--"),
+    new Rule('Y', "af-F+X+F-fYaa")
+  ));
+  lsystems.push(new LSystem('Y---Y', rulesets[34]));
+  renderers.push(new Renderer(lsystems[34].getSentence(), 10, radians(60), width/2, height, -PI/2));
 
   //! Kolam
   // rulesets.push(new Array(

@@ -1,6 +1,6 @@
 let select;
 let button;
-let generation = 0;
+let paragraph;
 let selectedFractal = 0;
 let counter = 0;
 
@@ -60,7 +60,9 @@ function setup() {
   button.style('border-radius:7px');
   button.mousePressed(buttonEvent);
 
-
+  paragraph = createP('Generation: ' + 0);
+  paragraph.position(width - 150, 10);
+  paragraph.style('font-size: 20px; color: white; font-family: Arial; text-align: center;');
 
   //! Bush 1
   rulesets.push(new Array(
@@ -392,14 +394,10 @@ function setup() {
 function draw() {
   background(0);  
   stroke(255);
-
-  textSize(20);
-  fill(255);
-  text('Generation: ' + generation, width - 80, 26);
+  strokeWeight(0.8);
 
   renderers[selectedFractal].render();
-
-  noLoop();
+  paragraph.html(`Generation: ${lsystems[selectedFractal].getGeneration()}`);
 }
 
 function resetFractal() {
@@ -411,6 +409,7 @@ function resetFractal() {
   for (const renderer of renderers) {
     renderer.resetString();
     renderer.resetLength();
+    renderer.resetCamera();
   }
 
   clear();
@@ -438,8 +437,5 @@ function generateFractal(fractal) {
     renderers[fractal].setString(lsystems[fractal].getSentence());
     renderers[fractal].scaleLength();
     pop();
-
-    generation = lsystems[fractal].getGeneration();
-    redraw();
   }
 }

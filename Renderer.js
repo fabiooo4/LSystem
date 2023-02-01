@@ -94,6 +94,7 @@ class Renderer {
 
   resetCamera() {
     cam.reset();
+    this.strokeWeight = 1;
   } 
 
   moveCamera() {

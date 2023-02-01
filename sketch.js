@@ -1,6 +1,7 @@
 let select;
 let button;
 let paragraph;
+
 let selectedFractal = 0;
 let counter = 0;
 
@@ -8,9 +9,7 @@ let lsystems = [];
 let rulesets = [];
 let renderers = [];
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-
+function loadDomElements() {
   textAlign(CENTER);
   select = createSelect();
   select.position(10, 10);
@@ -63,6 +62,11 @@ function setup() {
   paragraph = createP('Generation: ' + 0);
   paragraph.position(width - 150, 10);
   paragraph.style('font-size: 20px; color: white; font-family: Arial; text-align: center;');
+}
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  loadDomElements();
 
   //! Bush 1
   rulesets.push(new Array(
@@ -394,9 +398,9 @@ function setup() {
 function draw() {
   background(0);  
   stroke(255);
-  strokeWeight(0.8);
 
   renderers[selectedFractal].render();
+  
   paragraph.html(`Generation: ${lsystems[selectedFractal].getGeneration()}`);
 }
 
@@ -438,4 +442,12 @@ function generateFractal(fractal) {
     renderers[fractal].scaleLength();
     pop();
   }
+}
+
+function mouseDragged() {
+  renderers[selectedFractal].moveCamera();
+}
+
+function mouseWheel(event) {
+  renderers[selectedFractal].zoomCamera(event);
 }

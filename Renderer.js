@@ -1,3 +1,5 @@
+let cam = new Camera(1, 950, 488);
+
 class Renderer {
   constructor(string, lineLength, angle, startingX, startingY, initialRotation, scale = 1, lengthFactor = 1) {
     this.string = string;
@@ -88,4 +90,19 @@ class Renderer {
   resetString() {
     this.string = "";
   }
+
+  resetCamera() {
+    cam.reset();
+  } 
+
+  
+}
+
+function mouseDragged() {
+  cam.translate(cam.pmouseX - cam.mouseX, cam.pmouseY - cam.mouseY);
+}
+
+function mouseWheel(e) {
+  var factor = Math.pow(1.001, -e.delta);
+  cam.scale(factor, mouseX, mouseY);
 }

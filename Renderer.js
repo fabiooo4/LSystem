@@ -1,5 +1,4 @@
 let cam = new Camera(1, 950, 488);
-
 class Renderer {
   constructor(string, lineLength, angle, startingX, startingY, initialRotation, scale = 1, lengthFactor = 1) {
     this.string = string;
@@ -11,9 +10,11 @@ class Renderer {
     this.initialRotation = initialRotation;
     this.lengthFactor = lengthFactor;
     this.scale = scale;
+    this.strokeWeight = 1;
   }
 
   render() {
+    strokeWeight(this.strokeWeight);
     translate(this.startingX, this.startingY);
     rotate(this.initialRotation);
 
@@ -95,14 +96,15 @@ class Renderer {
     cam.reset();
   } 
 
+  moveCamera() {
+    cam.translate(cam.pmouseX - cam.mouseX, cam.pmouseY - cam.mouseY);
+  }
   
-}
+  zoomCamera(e) {
+    var factor = Math.pow(1.001, -e.delta);
+    cam.scale(factor, mouseX, mouseY);
 
-function mouseDragged() {
-  cam.translate(cam.pmouseX - cam.mouseX, cam.pmouseY - cam.mouseY);
-}
-
-function mouseWheel(e) {
-  var factor = Math.pow(1.001, -e.delta);
-  cam.scale(factor, mouseX, mouseY);
+    // Stroke weight maintains a constant size on the screen
+    this.strokeWeight /= factor;
+  }
 }

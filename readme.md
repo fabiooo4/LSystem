@@ -5,8 +5,10 @@ A simple L-system implementation in p5.js with a simple GUI that allows to choos
 - Download the repository
 - Open the index.html file in your browser
 - Choose the fractal you want to see
-- Click any key to generate the next iteration
+- Click <kbd>Any key</kbd> to generate the next iteration
 - The reset button will reset the iteration to 0
+- <kbd>Left mouse button</kbd> to drag
+- <kbd>Mouse wheel</kbd> to zoom in and out
   
 <br>
 
